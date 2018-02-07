@@ -22,9 +22,11 @@ import javax.swing.SwingConstants;
 //2. Replace that 0 when an integer is added but keep that zero if Decimal point is used
 //3. Perform a multiplication and then Press "C" and then press "=" it will keep giving 0
 //4. "CE" should make it completely forget all its' previous calculations and restart an expression
+//5. The window size is always opening in maximum mode or minimized mode
+//6. The window runs even after closing the GUI.
 //These are just a few problems I noticed, I am sure there might be more but it should get us through the 1st Deliverable.
 
-public class Calulator {
+public class Calculator {
 
 	private static JFrame frame;
 	private JTextField textField;
@@ -41,9 +43,11 @@ public class Calulator {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Calulator window = new Calulator();
+					Calculator window = new Calculator();
 					window.frame.setVisible(true);
-					frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+					window.frame.setSize(700,400);									//-------------> Problem 5. fixed
+					window.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 	//--------------->Problem 6. fixed
+					//frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -52,7 +56,7 @@ public class Calulator {
 	}
 
 	
-	public Calulator() {
+	public Calculator() {
 		initialize();
 	}
 
