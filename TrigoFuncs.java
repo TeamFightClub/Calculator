@@ -1,9 +1,12 @@
 package testing;
 import java.util.Scanner;
-import java.lang.Math; //----------> using this for the math.pow(x,y) = x^y
+//import java.lang.Math; //----------> using this for the math.pow(x,y) = x^y ---> no need anymore
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 //Things working in this code
-//1. Giving the right values of sine, cosecant and cosine functions.
+//1. Giving the right values of ALL FUNCTIONS.(problem 1,2,3 solved)
+//2. No need to use java.math library(problem 5 is solved)
 
 //Problems in this code
 //1. The Cosine function will execute values properly only upto certain loop iteration
@@ -12,6 +15,7 @@ import java.lang.Math; //----------> using this for the math.pow(x,y) = x^y
 //4. The value of Secant function is incorrect for 90 degrees because it is infinity,
 //   but it is giving a random value because the iterations is suppose to go for infinity (so maybe an "if" condition will solve the problem)
 //5. Using the math.pow function for now, will need to implement the x^y function here instead.
+
 public class TrigoFuncs {
 	// ----------Converting Degrees to Radians----------
 	
@@ -22,19 +26,19 @@ public class TrigoFuncs {
 	}
 	
 	//----------------Trigo Functions-------------------
-	public static float SinFuncs(double x) {
-		float sin=0.0f;
-        long fact;
+	public static double SinFuncs(double x) {
+		
+		
+		double sin=0;
+		double fact=1;
+		double currX=x;
+		int sign=1;
+		double update=x*x;
         for(int i=1; i<=10; i++){
-            fact=1;
-            for(int j=1; j<=2*i-1; j++){
-                fact=fact*j;
-            }
-            if(i%2==1){
-                sin=sin+(float)(Math.pow(x,2*i-1)/fact);
-            }else{
-                sin=sin-(float)(Math.pow(x,2*i-1)/fact);
-            }
+            sin= sin+ sign*currX/fact;
+            currX=currX*update;
+            sign =sign*(-1);
+            fact=fact *(i*2)*(i*2+1);
         }
         return sin;
 		
@@ -42,54 +46,54 @@ public class TrigoFuncs {
 	
 	
 	
-	public static float CosFuncs(double x) {
-		float cos=1.0f;
-        long fact;
-        for(int i=1; i<=2; i++){  //---------------> if value of i is high(for more accurate value) like 10, the answer is incorrect
-            fact=1;
-            for(int j=1; j<=2*i; j++){
-                fact=fact*j;
-            }
-            if(i%2==1){
-                cos=cos-(float)(Math.pow(x,2*i)/fact);
-            }else{
-                cos=cos+(float)(Math.pow(x,2*i)/fact);
-            }
+public static double CosFuncs(double x) {
+		
+		
+		double cos=0;
+		double fact=1;
+		double currX=1;
+		int sign=1;
+		double update=x*x;
+        for(int i=1; i<=10; i++){
+            cos= cos+ sign*currX/fact;
+            currX=currX*update;
+            sign =sign*(-1);
+            fact=fact *(i*2)*(i*2-1);
         }
         return cos;
 		
 	}
 	
 	
-	public static float TanFuncs(double x) {
+	public static double TanFuncs(double x) {
 		
-        float numerator=SinFuncs(x);
-        float denominator = CosFuncs(x);
-        float tan = numerator/denominator;
+        double numerator=SinFuncs(x);
+        double denominator = CosFuncs(x);
+        double tan = numerator/denominator;
         return tan;
 		
 	}
 	
-	public static float CoSecFuncs(double x) {
+	public static double CoSecFuncs(double x) {
 
-        float numerator=1;
-        float denominator = SinFuncs(x);
-        float CoSec = numerator/denominator;
+        double numerator=1;
+        double denominator = SinFuncs(x);
+        double CoSec = numerator/denominator;
         return CoSec;
 		
 	}
-	public static float SecFuncs(double x) {
-		float numerator=1;
-        float denominator = CosFuncs(x);
-        float CoSec = numerator/denominator;
-        return CoSec;
+	public static double SecFuncs(double x) {
+		double numerator=1;
+        double denominator = CosFuncs(x);
+        double Sec = numerator/denominator;
+        return Sec;
 		
 	}
 	
-	public static float CotFuncs(double x) {
-		float numerator=1;
-        float denominator = TanFuncs(x);
-        float Cot = numerator/denominator;
+	public static double CotFuncs(double x) {
+		double numerator=1;
+        double denominator = TanFuncs(x);
+        double Cot = numerator/denominator;
         return Cot;
 				
 	}
@@ -97,30 +101,24 @@ public class TrigoFuncs {
 	//--------------------Main Function---------------------
 	public static void main(String[] args){
 		Scanner sc= new Scanner(System.in);
-		System.out.println("Enter Angle :: ");
+		System.out.println("Enter Radians :: ");
 		
 		double value= sc.nextDouble();
 		
 		sc.close();
 		
+		double result=SinFuncs(value);
+		//System.out.println("Value in Radians = " +convert(value));
 		
-		System.out.println("Value in Radians = " +convert(value));
-		
-		value=convert(value);
-		
-		System.out.println("Value of Sine = " + SinFuncs(value) + "  Value of Sine Using Math Functions =  " + Math.sin(1.57));
-		
-		System.out.println("Value of Cosine = " + CosFuncs(value) + "  Value of Cosine Using Math Functions =  " + Math.cosh(1.57));
-		
-		System.out.println("Value of Cosecant = " + CoSecFuncs(value) );
-		
-		/*
-		System.out.println("Value of Tangent = " + TanFuncs(value) + "  Value of Tangent Using Math Functions =  " + Math.tan(1.57));
-		*/
+		//value=convert(value);
 		
 		
-		//System.out.println("Value of Secant = " + SecFuncs(value) );
-		//System.out.println("Value of Cot = " + CotFuncs(value));
+		System.out.println("Value of Sine = " + result + "  Value of Sine Using Math Functions =  " + Math.sin(value));
+		
+		System.out.println("Value of Cosine = " + CosFuncs(value) + "  Value of Cosine Using Math Functions =  " + Math.cos(value));
+	
+		System.out.println("Value of Tangent = " + TanFuncs(value) + "  Value of Tangent Using Math Functions =  " + Math.tan(value));
+		
 		
 	}
 }
