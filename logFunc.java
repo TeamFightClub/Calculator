@@ -1,6 +1,6 @@
 //Priority is natural logarithm as above functions need it 
 //Need to extend to include log base 10 
-
+// The function isn't working for an absurdly large number like "25315313".
 import java.util.Scanner;
 
 public class logFunc extends eternityMath{
