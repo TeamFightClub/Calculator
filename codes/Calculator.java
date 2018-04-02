@@ -300,7 +300,8 @@ public class Calculator {
 		button_clearall.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		button_clearall.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				operations=null;
+				textField.setText("");
+				answer="";
 			}
 			
 		});
@@ -337,11 +338,32 @@ public class Calculator {
 		JButton btnNewButton = new JButton("=");
 		btnNewButton.setBounds(305, 275, 70, 40);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				expressioncalc=expressioncalc;
-				answer=(EpressionIp.stack(expressioncalc));
-				textField.setText(EpressionIp.stack(expressioncalc));
+		btnNewButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				if(EpressionIp.stack(expressioncalc).equals("1.0E20")) //error if negative log return error
+				{					
+					answer="Logarithm can't be negative";
+				}
+				else if(EpressionIp.stack(expressioncalc).equals("1.0E21")) // error if log is zero then return error
+				{					
+					answer =  "Negative Infinity";
+				}
+				else if(EpressionIp.stack(expressioncalc).equals("1.0E22")) // error if divide by zero
+				{
+					answer = "Cannot divide by zero";
+				}
+				else if(EpressionIp.stack(expressioncalc).equals("1.0E25")) //error if root of negative number
+				{
+					answer = "Root Negative Number Error";	// error if square root of negative number
+				}
+				else
+				{
+					answer=(EpressionIp.stack(expressioncalc));
+				}
+				
+				textField.setText(answer);
 			}
 		});
 		
@@ -392,7 +414,7 @@ public class Calculator {
 		btnx.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				expressiondisplay=textField.getText()+btnx.getText();
+				expressiondisplay=textField.getText()+btnx.getText()+"(";
 				expressioncalc=textField.getText()+"1r";
 				textField.setText(expressiondisplay);
 			}
@@ -415,7 +437,7 @@ public class Calculator {
 		btnXy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				expressiondisplay=textField.getText()+btnXy.getText();
+				expressiondisplay=textField.getText()+btnXy.getText()+"(";
 				expressioncalc=textField.getText()+btnXy.getText();
 				textField.setText(expressiondisplay);
 			}
