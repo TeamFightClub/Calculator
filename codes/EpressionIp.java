@@ -31,7 +31,9 @@ public class EpressionIp {
 		}
 		 return expression;
 	}
-	 public static String stack(String expression){
+	 public static String stack(String expression)
+	 {
+		 String lastOne;
 		 expression=expression.replaceAll("--", "+");
 		expression=expression.replaceAll("sin", "1s");
 		expression=expression.replaceAll("ln", "1l");
@@ -39,6 +41,32 @@ public class EpressionIp {
 		expression=expression.replaceAll("-","m");
 		expression=expression.replaceAll("e", "2.7182818284590452353602874713527");
 		expression=expression.replaceAll("\u03C0", "3.14159265358979323846264338327950288419716939937510582097494");
+		
+		//check to see that expression is valid and ends in a number	
+		for(int i = 0; i<expression.length(); i++)
+		{
+			//if two consecutive operators exist then return error
+			if(i != expression.length()-1)
+			{
+				if(expression.charAt(i)=='+' || expression.charAt(i)=='-' || expression.charAt(i)=='/' ||expression.charAt(i)=='*' || expression.charAt(i)=='%' || expression.charAt(i)=='.')
+				{
+					if(expression.charAt(i+1)=='+' || expression.charAt(i+1)=='-' || expression.charAt(i+1)=='/' ||expression.charAt(i+1)=='*' || expression.charAt(i+1)=='%' || expression.charAt(i+1)=='.')
+					{
+						return "Syntax Error: Operators";
+						
+					}
+				}
+			}
+			//if last character of input string is operator then return error
+			else
+			{
+				if(expression.charAt(i)=='+' || expression.charAt(i)=='-' || expression.charAt(i)=='/' ||expression.charAt(i)=='*' || expression.charAt(i)=='%' || expression.charAt(i)=='.')
+				{
+					return "Syntax Error: Operators";					
+				}
+			}
+
+		}
 		expression=minusTrans(expression);
 		//remove white space and add evaluation operator
 		expression="("+expression+")";//---->send the entire expression inside the bracket to the calculate in the function
@@ -65,13 +93,36 @@ public class EpressionIp {
 				
 				expressionStack.push(exp);//-----> push the evaluated value in the stack
 			}
-		}
+		}		
 
-        //return the top of the value stack
-        String lastOne=(String)expressionStack.pop();
-        //System.out.println(lastOne);
-        return lastOne;
-        //return Double.parseDouble(lastOne);  
+		
+		//check if number of opening brackets equals number of closing brackets
+		int numOpenBracks=0;
+		int numClosedBracks=0;			
+		for(int i=0;i<expression.length();i++)
+		{
+			if(expression.charAt(i) == ')')
+			{		
+				numOpenBracks++;
+			}
+			if(expression.charAt(i)=='(')
+			{
+				numClosedBracks++;
+			}
+		}
+		if(numOpenBracks != numClosedBracks)
+		{
+			lastOne = "Syntax Error: Brackets";
+		}						
+		else
+		{
+			lastOne=(String)expressionStack.pop();
+		}		
+		
+		
+				
+        //return the top of the value stack                
+        return lastOne;  
 		
 	 }
 	 public static double infix(String expression)
@@ -141,36 +192,57 @@ public class EpressionIp {
 	    {
 	        double op1=Double.parseDouble(operand1);
 	        double op2=Double.parseDouble(operand2);
-	        if(operator.equals("^"))
+	        if(operator.equals("^"))				//exponent
 	        	return ""+(XpowY.pow(op1,op2));
-	        else if(operator.equals("*"))
+	        else if(operator.equals("*"))			//multiplication
 	            return ""+(op1*op2);
-	        else if(operator.equals("/"))
-	            return ""+(op1/op2);
-	        else if(operator.equals("+"))
+	        
+	        else if(operator.equals("/"))			//division
+	        {
+	        	if(op2 == 0)
+	        	{
+	        		return "10000000000000000000000"; //Error if divide by 0: 22
+	        	}
+	        	else
+	        	{
+	        		return ""+ (op1/op2);
+	        	}
+	        }	            
+	        else if(operator.equals("+"))			//addition
 	            return ""+(op1+op2);
-	        else if(operator.equals("m"))
+	        else if(operator.equals("m"))			//subtraction
 	             return ""+(op1-op2);
-	        else if(operator.equals("%"))
+	        else if(operator.equals("%"))			//modulo
 	            return ""+(op1%op2);
-	        else if(operator.equals("s"))
+	        else if(operator.equals("s"))	        //sine
 	            return ""+TrigoFuncs.SinFuncs(TrigoFuncs.convert(op2));
 	        else if(operator.equals("l"))
-	        	return ""+Logarithms.Logarithms(op2);
-	        else if(operator.equals("r"))
-	        	return ""+XpowY.pow(op2, 0.5);
+	        {
+	        	if(op2<0)
+	        	{
+	        		return "100000000000000000000";	 //error code if log value less than zero: 20      		
+	        	}
+	        	if(op2==0)
+	        	{
+	        		return "1000000000000000000000";	//error code if log value is zero: 21
+	        	}
+	        	else
+	        	{
+	        		return ""+Logarithms.Logarithms(op2);
+	        	}
+	        }
+	        else if(operator.equals("r"))			//root
+	        {	        	
+	        	if(op2<0)
+	        	{
+	        		return "10000000000000000000000000";				//error code if square root of negative number: 23
+	        	}
+	        	else
+	        	{	        	
+	        		return ""+XpowY.pow(op2, 0.5);
+	        	}	
+	        }
 	        else return null;
 	    }
-	    
-	    
-	    public static void main(String[] args)
-	    {
-	        Scanner sc =  new Scanner(System.in);
-			System.out.print("enter the expression you want to evaluate : ");
-			//String Exp ="1r(4)"; 
-			String Exp = sc.nextLine();  
-			String answer = stack(Exp);
-			System.out.println(answer);
-	    	
-	    }
+
 }
