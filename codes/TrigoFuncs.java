@@ -6,6 +6,12 @@ public class TrigoFuncs {
 	public static double convert(double x){
 		double radians;
 		radians = (x*22)/(7*180);
+		while(radians>6.2831853072 ){
+			radians=radians-6.2831853072;
+		}
+		while(radians<0 ){
+			radians=radians+6.2831853072;
+		}
 		return radians;
 	}
 	
