@@ -4,12 +4,14 @@ import java.lang.Math;
 
 public class Logarithms {
 
-	public static double Logarithms(double value) {
+	public static double Logarithms(double value)
+	{
 		double x=value;
 		int sign=1;
 		int e=0;
 		if(x<0){
 			System.out.print("No Negative allowed");
+			errsz();
 			return 0;
 		}else if(x==0){
 			System.out.print("Negative Infinity");
@@ -43,6 +45,11 @@ public class Logarithms {
 	
 			return sum;
 		}
+	}
+	public static String errsz()
+	{
+		System.out.println("aaaaaa");
+		return "No Negative Allowed";
 	}
 	/*public static void main(String[] args){
 			Scanner sc = new Scanner(System.in);
