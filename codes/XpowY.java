@@ -1,7 +1,5 @@
 package calculator;
 
-import java.util.Scanner;
-
 public class XpowY {
 	public static double answer=1;
 	public static double base;
@@ -78,22 +76,5 @@ public class XpowY {
 		return answer;
 		
 	}
-	/*public static void main(String[] args){
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Value of x :: ");
-		base= sc.nextDouble();
-		System.out.print("Value of exponent :: ");
-		exponent= sc.nextDouble();
-		sc.close();
-		if(base>0){
-			answer=posBase(base,exponent);
-		}
-		else{
-			answer=negBase(base,exponent);
-		}
-		
-		System.out.println("The value of "+base + "^" + exponent + " is "+ answer+ " in comparison with math library " + Math.pow(base, exponent ));
-	
-		
-	}*/
+
 }
