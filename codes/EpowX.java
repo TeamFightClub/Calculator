@@ -42,7 +42,6 @@ public class EpowX {
 			exp=exp*exponent_fac;
 			answer= answer + (exp/fact);
 		}
-
 		double result=xpowerinty(2.718281828,exponent_int); 
 		System.out.println(result*answer);
 		System.out.println(Math.pow(2.718281828, exponent));
