@@ -62,7 +62,11 @@ public class EpressionIp {
 			{
 				if(expression.charAt(i)=='+' || expression.charAt(i)=='-' || expression.charAt(i)=='/' ||expression.charAt(i)=='*' || expression.charAt(i)=='%' || expression.charAt(i)=='.')
 				{
-					return "Syntax Error: Operators";					
+					//return "Syntax Error: Operators";
+					try {
+						throw new OperatorSyntax();} 
+					catch (OperatorSyntax e) {
+						e.printStackTrace();}
 				}
 			}
 
@@ -112,7 +116,11 @@ public class EpressionIp {
 		}
 		if(numOpenBracks != numClosedBracks)
 		{
-			lastOne = "Syntax Error: Brackets";
+			//lastOne = "Syntax Error: Brackets";
+			try {
+				throw new BracketSyntax();} 
+			catch (BracketSyntax e) {
+				e.printStackTrace();}
 		}						
 		else
 		{
@@ -201,7 +209,11 @@ public class EpressionIp {
 	        {
 	        	if(op2 == 0)
 	        	{
-	        		return "10000000000000000000000"; //Error if divide by 0: 22
+	        		//return "10000000000000000000000"; //Error if divide by 0: 22
+				try {
+					throw new DivideByZero();} 
+				catch (DivideByZero e) {
+					e.printStackTrace();}
 	        	}
 	        	else
 	        	{
@@ -220,23 +232,39 @@ public class EpressionIp {
 	        {
 	        	if(op2<0)
 	        	{
-	        		return "100000000000000000000";	 //error code if log value less than zero: 20      		
+	        		//return "100000000000000000000";	 //error code if log value less than zero: 20   
+				try {
+					throw new DivideByZero();} 
+				catch (DivideByZero e) {
+					e.printStackTrace();}
 	        	}
 	        	if(op2==0)
 	        	{
-	        		return "1000000000000000000000";	//error code if log value is zero: 21
+	        		//return "1000000000000000000000";	//error code if log value is zero: 21
+				try {
+					throw new DivideByZero();} 
+				catch (DivideByZero e) {
+					e.printStackTrace();}
 	        	}
 	        	else
 	        	{
-	        		return ""+Logarithms.Logarithms(op2);
+	        		//return ""+Logarithms.Logarithms(op2);
+				try {
+					throw new NegativeLog();} 
+				catch (NegativeLog e) {
+					e.printStackTrace();}
 	        	}
 	        }
 	        else if(operator.equals("r"))			//root
 	        {	        	
 	        	if(op2<0)
 	        	{
-	        		return "10000000000000000000000000";				//error code if square root of negative number: 23
-	        	}
+	        		//return "10000000000000000000000000";				//error code if square root of negative number: 23
+	        		try {
+					throw new SquareRootNegative();} 
+				catch (SquareRootNegative e) {
+					e.printStackTrace();}
+			}
 	        	else
 	        	{	        	
 	        		return ""+XpowY.pow(op2, 0.5);
