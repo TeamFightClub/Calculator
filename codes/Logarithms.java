@@ -10,8 +10,12 @@ public class Logarithms {
 		int sign=1;
 		int e=0;
 		if(x<0){
-			System.out.print("No Negative allowed");
-			errsz();
+			//System.out.print("No Negative allowed");
+			//errsz();
+			try {
+				throw new NegativeLog();} 
+			catch (NegativeLog e) {
+				e.printStackTrace();}
 			return 0;
 		}else if(x==0){
 			System.out.print("Negative Infinity");
