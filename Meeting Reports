@@ -124,7 +124,7 @@ Next meeting: February 25, 2018, 2 p.m, Webster Library.
 
 
 Meeting report 
-# 5
+# 6
 February 26
 
 Participants: 
@@ -143,4 +143,60 @@ Secretary: Camille Gagné
 •	Members answered teammates question about the code;
 
 •	Holly will send D2
+
+
+Meeting report 
+# 7
+March 15th 
+
+Participants: 
+- Sebastian Alovisi                               - Akshat Bisht                                 - Hayeden Bye          
+- Camille Gagné		                         - Connor Neuendorff                            - Holly Ryan
+
+Secretary: Camille Gagné
+
+
+•	Distributed tasks to improve the calculator: - Akshat will updatethe GUI so it is more compact
+                                                  - Sebastian will change the "if else" statemement for switch cases
+                                                  - Hayeden will incorporate the functions
+                                                  - Camille will standardize the code
+                                                  - Connor will create the exception handling
+                                                  - Holly will change the code to infix notation
+
+•	Final code will be uploaded to the git hub by each member
+
+•	Next meeting will be held on Good Friday, in the library (3rd floor) at 1 p.m
+
+
+
+Meeting report 
+# 8
+March 30th 
+
+Participants: 
+- Sebastian Alovisi                               - Akshat Bisht                                 - Hayeden Bye          
+- Camille Gagné		                         - Connor Neuendorff                            - Holly Ryan
+
+Secretary: Camille Gagné
+
+
+•	Finalization of the calculator
+
+•	For D3: Everyone needs to debug a function
+
+•	Holly will create the CRC and Hayeden and Akshat will review it
+
+•	Connor will design the Prototype Parttern and Akshat and Camille will review it
+
+•	Hayeden will upload the glossary and Sebastian will review it
+
+•	Sebastian will upload the negative use case and Holly will review it
+
+Every team member should send their final documentations by Wednesday April 4 to Holly, who will send D3.
+
+Next meeting: Saturday April 7th do work on the poster for D4 (which will be uploaded by Holly) 
+
+
+
+
 
