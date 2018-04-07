@@ -1,14 +1,9 @@
 package calculator;
 
 /**
- * 
- */
-/**
- * @author Akshat Bisht
+ *  This GUI is made using windows builder
  *
  */
-
-
 
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -35,7 +30,6 @@ public class Calculator {
 
 	private static JFrame frmEternity;
 	private JTextField textField;
-	String expressiondisplay;
 	String expressioncalc;
 	String operations;
 	String answer="";
@@ -81,7 +75,6 @@ public class Calculator {
 		textField.setForeground(new Color(255,255,255));//--------> text color will be white
 		textField.setHorizontalAlignment(SwingConstants.CENTER);
 		textField.setColumns(10);
-		//textField.setText("0");
 		
 		
 		//----------------Numbers-------------------------------------
@@ -91,10 +84,8 @@ public class Calculator {
 		button_0.setBounds(165, 275, 70, 40);
 		button_0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				expressiondisplay=textField.getText()+button_0.getText();
 				expressioncalc=textField.getText()+button_0.getText();
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -103,9 +94,8 @@ public class Calculator {
 		button_1.setBounds(95, 235, 70, 40);
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				expressiondisplay=textField.getText()+button_1.getText();
 				expressioncalc=textField.getText()+button_1.getText();
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -114,9 +104,8 @@ public class Calculator {
 		button_2.setBounds(165, 235, 70, 40);
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				expressiondisplay=textField.getText()+button_2.getText();
 				expressioncalc=textField.getText()+button_2.getText();
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -125,9 +114,8 @@ public class Calculator {
 		button_3.setBounds(235, 235, 70, 40);
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				expressiondisplay=textField.getText()+button_3.getText();
 				expressioncalc=textField.getText()+button_3.getText();
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -136,9 +124,8 @@ public class Calculator {
 		button_4.setBounds(95, 195, 70, 40);
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				expressiondisplay=textField.getText()+button_4.getText();
 				expressioncalc=textField.getText()+button_4.getText();
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -147,9 +134,8 @@ public class Calculator {
 		button_5.setBounds(165, 195, 70, 40);
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				expressiondisplay=textField.getText()+button_5.getText();
 				expressioncalc=textField.getText()+button_5.getText();
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -158,9 +144,8 @@ public class Calculator {
 		button_6.setBounds(235, 195, 70, 40);
 		button_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				expressiondisplay=textField.getText()+button_6.getText();
 				expressioncalc=textField.getText()+button_6.getText();
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -169,9 +154,8 @@ public class Calculator {
 		button_7.setBounds(95, 155, 70, 40);
 		button_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				expressiondisplay=textField.getText()+button_7.getText();
 				expressioncalc=textField.getText()+button_7.getText();
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -180,9 +164,8 @@ public class Calculator {
 		button_8.setBounds(165, 155, 70, 40);
 		button_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				expressiondisplay=textField.getText()+button_8.getText();
 				expressioncalc=textField.getText()+button_8.getText();
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -191,9 +174,8 @@ public class Calculator {
 		button_9.setBounds(235, 155, 70, 40);
 		button_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				expressiondisplay=textField.getText()+button_9.getText();
 				expressioncalc=textField.getText()+button_9.getText();
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -234,10 +216,8 @@ public class Calculator {
 		button_div.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		button_div.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				expressiondisplay=textField.getText()+button_div.getText();
 				expressioncalc=textField.getText()+button_div.getText();
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -247,10 +227,8 @@ public class Calculator {
 		button_mul.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		button_mul.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				expressiondisplay=textField.getText()+button_mul.getText();
 				expressioncalc=textField.getText()+button_mul.getText();
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -260,10 +238,8 @@ public class Calculator {
 		button_add.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		button_add.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				expressiondisplay=textField.getText()+button_add.getText();
 				expressioncalc=textField.getText()+button_add.getText();
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 				
 			}
 		});
@@ -274,10 +250,8 @@ public class Calculator {
 		button_sub.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		button_sub.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				expressiondisplay=textField.getText()+button_sub.getText();
-				expressioncalc=textField.getText()+"m";
-				textField.setText(expressiondisplay);
+				expressioncalc=textField.getText()+"-";
+				textField.setText(expressioncalc);
 			}
 		});
 		//--------------------------------------------------------------
@@ -286,10 +260,9 @@ public class Calculator {
 		button_rem.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		button_rem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				expressiondisplay=textField.getText()+button_rem.getText();
+		
 				expressioncalc=textField.getText()+button_rem.getText();
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -301,7 +274,8 @@ public class Calculator {
 		button_clearall.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText("");
-				answer="";
+				ExpressionIp.lastOne="0";
+				answer=null;
 			}
 			
 		});
@@ -341,28 +315,34 @@ public class Calculator {
 		btnNewButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
-			{
-				if(EpressionIp.stack(expressioncalc).equals("1.0E20")) //error if negative log return error
-				{					
+			{		
+				// if expression has key value return apporpriate error message
+				if(ExpressionIp.stack(expressioncalc).equals("a"))
+				{
 					answer="Logarithm can't be negative";
 				}
-				else if(EpressionIp.stack(expressioncalc).equals("1.0E21")) // error if log is zero then return error
-				{					
-					answer =  "Negative Infinity";
-				}
-				else if(EpressionIp.stack(expressioncalc).equals("1.0E22")) // error if divide by zero
+				else if(ExpressionIp.stack(expressioncalc).equals("b"))
 				{
-					answer = "Cannot divide by zero";
+					
+					answer="Negative Infinity";
 				}
-				else if(EpressionIp.stack(expressioncalc).equals("1.0E25")) //error if root of negative number
+				else if(ExpressionIp.stack(expressioncalc).equals("c"))
 				{
-					answer = "Root Negative Number Error";	// error if square root of negative number
+					answer="Cannot divide by zero";
+				}
+				else if(ExpressionIp.stack(expressioncalc).equals("d"))
+				{
+					answer = "Root Negative Number Error";
+				}
+				else if(ExpressionIp.stack(expressioncalc).equals("d"))
+				{
+					answer = "Cannot Zero Exponent Negative";
 				}
 				else
 				{
-					answer=(EpressionIp.stack(expressioncalc));
+					answer=(ExpressionIp.stack(expressioncalc));
 				}
-				
+
 				textField.setText(answer);
 			}
 		});
@@ -375,9 +355,8 @@ public class Calculator {
 		btnPi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				expressiondisplay=textField.getText()+btnPi.getText();
-				expressioncalc=textField.getText()+"3.14159265358979323846264338327950288419716939937510582097494";
-				textField.setText(expressiondisplay);
+				expressioncalc=textField.getText()+btnPi.getText();
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -387,10 +366,8 @@ public class Calculator {
 		btnLnx.setFont(new Font("Tahoma", Font.PLAIN, 12));		
 		btnLnx.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				expressiondisplay=textField.getText()+btnLnx.getText()+"(";
-				expressioncalc=textField.getText()+"1l"+"(";
-				textField.setText(expressiondisplay);
+				expressioncalc=textField.getText()+btnLnx.getText()+"(";
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -399,11 +376,9 @@ public class Calculator {
 		btnEx.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnEx.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				expressiondisplay=textField.getText()+btnEx.getText();
-				expressioncalc=textField.getText()+"2.7182818284590452353602874713527 ";
+				expressioncalc=textField.getText()+btnEx.getText();
 
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -414,9 +389,8 @@ public class Calculator {
 		btnx.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				expressiondisplay=textField.getText()+btnx.getText()+"(";
-				expressioncalc=textField.getText()+"1r";
-				textField.setText(expressiondisplay);
+				expressioncalc=textField.getText()+btnx.getText()+"(";
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -425,9 +399,8 @@ public class Calculator {
 		btnSinx.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnSinx.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				expressioncalc=textField.getText()+"1s"+"(";
-				expressiondisplay=textField.getText()+btnSinx.getText()+"(";
-				textField.setText(expressiondisplay);
+				expressioncalc=textField.getText()+btnSinx.getText()+"(";
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -437,9 +410,8 @@ public class Calculator {
 		btnXy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				expressiondisplay=textField.getText()+btnXy.getText()+"(";
-				expressioncalc=textField.getText()+btnXy.getText();
-				textField.setText(expressiondisplay);
+				expressioncalc=textField.getText()+btnXy.getText()+"(";
+				textField.setText(expressioncalc);
 			}
 		});
 		
@@ -479,9 +451,8 @@ public class Calculator {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				expressiondisplay=textField.getText()+")";
 				expressioncalc=textField.getText()+")";
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		panel.add(button);
@@ -491,9 +462,8 @@ public class Calculator {
 		button_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				expressiondisplay=textField.getText()+"(";
 				expressioncalc=textField.getText()+"(";
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		panel.add(button_10);
@@ -504,9 +474,8 @@ public class Calculator {
 		btnAns.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				expressiondisplay=textField.getText()+btnAns.getText();
 				expressioncalc=textField.getText()+btnAns.getText();
-				textField.setText(expressiondisplay);
+				textField.setText(expressioncalc);
 			}
 		});
 		panel.add(btnAns);
